@@ -17,12 +17,12 @@ const {
 
 // Configuración de Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyDERAutq7CQnhSGjsjdewoia1T3NEv_rA4",
-    authDomain: "g05-tpi-2cuat-2023.firebaseapp.com",
-    projectId: "g05-tpi-2cuat-2023",
-    storageBucket: "g05-tpi-2cuat-2023.appspot.com",
-    messagingSenderId: "873208984450",
-    appId: "1:873208984450:web:307fac857d92c895dd159b"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
   };
   
   const appFirebase = initializeApp(firebaseConfig);
