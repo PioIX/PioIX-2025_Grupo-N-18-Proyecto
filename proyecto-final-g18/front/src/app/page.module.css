@@ -1,0 +1,32 @@
+/* src/app/page.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #274956;
+  background: #02121a;
+  color: #e6eef8;
+}
+
+.btn {
+  background: #2dd4bf;
+  color: #042022;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
