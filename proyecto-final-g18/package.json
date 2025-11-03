@@ -1,21 +1,17 @@
 {
-  "name": "proyecto-final-g18",
-  "version": "0.1.0",
+  "name": "truco-1v1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.5"
-  },
-  "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "15.5.5",
-    "@eslint/eslintrc": "^3"
+    "clsx": "^2.1.0",
+    "next": "14.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "socket.io-client": "^4.7.2"
   }
 }
