@@ -1,0 +1,141 @@
+/* src/components/TrucoGame.module.css */
+
+.loading, .lobby, .waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  color: white;
+}
+
+.lobby h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.lobbyButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btnPrimary {
+  background: #27ae60;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+}
+
+.btnSecondary {
+  background: #3498db;
+  color: white;
+}
+
+.btnSecondary:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.gameCode {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.gameCode strong {
+  color: #f39c12;
+  font-size: 2rem;
+}
+
+.instruction {
+  color: #bdc3c7;
+  margin-top: 1rem;
+}
+
+.gameContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.scoreBoard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.message {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  background: rgba(241, 196, 15, 0.2);
+  border-radius: 8px;
+  border: 2px solid #f1c40f;
+}
+
+.gameBoard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.opponentHand, .playerHand, .table {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.opponentHand h3, .playerHand h3, .table h3 {
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.playedCards {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
