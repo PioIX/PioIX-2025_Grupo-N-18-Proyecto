@@ -1,5 +1,5 @@
 {
-  "name": "truco-argentino-server",
+  "name": "proyecto18",
   "version": "1.0.0",
   "description": "Servidor WebSocket para Truco Argentino",
   "main": "server.js",
