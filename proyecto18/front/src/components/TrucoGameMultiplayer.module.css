@@ -1,0 +1,283 @@
+/* Pantalla de conexión */
+.connectionContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f1e47 100%);
+}
+
+.connectionCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.connectionHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connectionIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.connectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 0.5rem;
+}
+
+.connectionSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.connectionOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.connectionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnCreate {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.btnCreate:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btnJoin {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.btnJoin:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btnIcon {
+  font-size: 1.25rem;
+}
+
+.divider {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.joinSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.roomInput {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.roomInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: normal;
+}
+
+.roomInput:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.8);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.btnBack {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+
+.btnBack:hover {
+  color: white;
+}
+
+.warning {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid #f59e0b;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.warningIcon {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.warningText {
+  font-size: 0.75rem;
+  color: #fbbf24;
+  margin: 0;
+}
+
+/* Pantalla de espera */
+.waitingContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f1e47 100%);
+}
+
+.waitingCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  max-width: 28rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.waitingIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.waitingTitle {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 2rem;
+}
+
+.roomCodeBox {
+  background: rgba(37, 99, 235, 0.3);
+  border: 2px solid rgba(37, 99, 235, 0.6);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.roomCodeLabel {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 0.5rem;
+}
+
+.roomCodeValue {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.waitingText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  margin: 0 0 2rem;
+}
+
+.btnCancel {
+  padding: 0.75rem 2rem;
+  background: #dc2626;
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnCancel:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .connectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .connectionIcon {
+    font-size: 2.5rem;
+  }
+
+  .roomInput {
+    font-size: 1rem;
+  }
+
+  .waitingIcon {
+    font-size: 3rem;
+  }
+
+  .waitingTitle {
+    font-size: 1.5rem;
+  }
+
+  .roomCodeValue {
+    font-size: 2rem;
+  }
+}
