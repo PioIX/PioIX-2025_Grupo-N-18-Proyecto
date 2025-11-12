@@ -1,0 +1,84 @@
+.actionsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.actionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.actionBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.actionBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btnIcon {
+  font-size: 1.25rem;
+}
+
+/* Botón Envido */
+.btnEnvido {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.btnEnvido:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+}
+
+/* Botón Truco */
+.btnTruco {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.btnTruco:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+}
+
+/* Botón Me voy al mazo */
+.btnFold {
+  background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+}
+
+.btnFold:hover:not(:disabled) {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .actionsContainer {
+    gap: 0.5rem;
+  }
+
+  .actionBtn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .btnIcon {
+    font-size: 1rem;
+  }
+}
