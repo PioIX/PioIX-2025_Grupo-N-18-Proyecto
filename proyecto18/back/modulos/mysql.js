@@ -39,3 +39,60 @@ exports.realizarQuery = async function (queryString)
 	return returnObject[0];
 }
 
+
+require('dotenv').config();
+const mysql = require('mysql2/promise');
+
+// Configuración de la conexión
+const dbConfig = {
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'truco_game',
+  port: process.env.DB_PORT || 3306,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+};
+
+// Crear pool de conexiones
+const pool = mysql.createPool(dbConfig);
+
+// Función para verificar la conexión
+async function checkConnection() {
+  try {
+    const connection = await pool.getConnection();
+    console.log('✅ Conectado a MySQL correctamente');
+    console.log(`   Base de datos: ${dbConfig.database}`);
+    console.log(`   Host: ${dbConfig.host}:${dbConfig.port}`);
+    connection.release();
+    return true;
+  } catch (error) {
+    console.error('❌ Error al conectar a MySQL:', error.message);
+    return false;
+  }
+}
+
+// Función helper para ejecutar queries
+async function query(sql, params) {
+  try {
+    const [results] = await pool.execute(sql, params);
+    return results;
+  } catch (error) {
+    console.error('Error en query:', error.message);
+    throw error;
+  }
+}
+
+// Función para obtener una conexión del pool
+async function getConnection() {
+  return await pool.getConnection();
+}
+
+// Exportar funciones
+module.exports = {
+  pool,
+  query,
+  getConnection,
+  checkConnection
+};
