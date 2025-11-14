@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Card from '../components/Card';
-import Card from '../../components/Card';
-import TrucoActions from '../../components/TrucoActions';
+import TrucoActions from '../components/TrucoActions';
 import styles from './TrucoGame.module.css';
 import multiplayerStyles from './TrucoGameMultiplayer.module.css';
 
