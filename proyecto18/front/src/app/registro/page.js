@@ -46,7 +46,7 @@ export default function RegistroPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/register', {
+      const response = await fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -82,7 +82,7 @@ export default function RegistroPage() {
         <div className={styles.header}>
           <div className={styles.icon}>✨</div>
           <h2 className={styles.title}>Crear Cuenta</h2>
-          <p className={styles.subtitle}>Únete y comienza a jugar</p>
+          <p className={styles.subtitle}>Unite y comenza a jugar</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -158,7 +158,7 @@ export default function RegistroPage() {
         </form>
 
         <div className={styles.footer}>
-          <p>¿Ya tienes cuenta?</p>
+          <p>¿Ya tenes cuenta?</p>
           <button 
             onClick={() => router.push('/login')}
             className={styles.btnLink}

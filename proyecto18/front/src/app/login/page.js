@@ -62,7 +62,7 @@ export default function LoginPage() {
         <div className={styles.header}>
           <div className={styles.icon}>🔑</div>
           <h2 className={styles.title}>Iniciar Sesión</h2>
-          <p className={styles.subtitle}>Ingresa tus credenciales</p>
+          <p className={styles.subtitle}>Ingresa tus datos</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -118,7 +118,7 @@ export default function LoginPage() {
         </form>
 
         <div className={styles.footer}>
-          <p>¿No tienes cuenta?</p>
+          <p>¿No tenes cuenta?</p>
           <button 
             onClick={() => router.push('/registro')}
             className={styles.btnLink}

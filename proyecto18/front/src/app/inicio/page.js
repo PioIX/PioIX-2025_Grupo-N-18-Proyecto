@@ -49,7 +49,7 @@ export default function InicioPage() {
         </div>
 
         <div className={styles.footer}>
-          <p>¿Listo para demostrar tu habilidad?</p>
+          <p>2025 5B</p>
         </div>
       </div>
     </div>
