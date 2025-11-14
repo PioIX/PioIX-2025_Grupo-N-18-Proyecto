@@ -252,3 +252,8 @@ process.on('SIGINT', async () => {
 process.on('unhandledRejection', (error) => {
   console.error('❌ Error no manejado:', error);
 });
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));

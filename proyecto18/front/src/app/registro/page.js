@@ -18,57 +18,64 @@ export default function RegistroPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  if (!formData.username || !formData.email || !formData.password) {
+    setError('Por favor completa todos los campos');
+    return;
+  }
 
-    if (!formData.username || !formData.email || !formData.password) {
-      setError('Por favor completa todos los campos');
-      return;
+  if (formData.username.length < 3) {
+    setError('El usuario debe tener al menos 3 caracteres');
+    return;
+  }
+
+  if (formData.password.length < 6) {
+    setError('La contraseña debe tener al menos 6 caracteres');
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formData.email)) {
+    setError('Email inválido');
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch('http://localhost:3001/api/auth/register', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Éxito
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      router.push('/truco');
+    } else {
+      // Error del servidor
+      setError(data.error || 'Error al crear la cuenta');
     }
-
-    if (formData.username.length < 3) {
-      setError('El usuario debe tener al menos 3 caracteres');
-      return;
-    }
-
-    if (formData.password.length < 6) {
-      setError('La contraseña debe tener al menos 6 caracteres');
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setError('Email inválido');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const response = await fetch('http://localhost:3000/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('token', data.token);
-        router.push('/truco');
-      } else {
-        setError(data.error || 'Error al crear la cuenta');
-      }
-    } catch (err) {
-      console.error('Error en registro:', err);
-      setError('Error de conexión. Verifica que el servidor esté activo.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  } catch (err) {
+    // Error de conexión
+    console.error('Error en registro:', err);
+    setError('Error de conexión. Verifica que el servidor esté activo en http://localhost:3001');
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className={styles.container}>
       <div className={`${styles.card} animate-slideUp`}>
