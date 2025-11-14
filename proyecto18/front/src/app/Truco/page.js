@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import TrucoGameIA from './TrucoGame';
+import TrucoGame from './TrucoGame';
 import TrucoGameMultiplayer from './TrucoGameMultiplayer';
-import styles from './page.module.css';
 
 export default function TrucoPage() {
   const router = useRouter();
