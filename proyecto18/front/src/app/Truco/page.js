@@ -7,20 +7,23 @@ import TrucoGameMultiplayer from './TrucoGameMultiplayer';
 import styles from './page.module.css';
 
 
+
+
+
 export default function TrucoPage() {
   const router = useRouter();
   const [gameMode, setGameMode] = useState(null); // null, 'ia', 'multiplayer'
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    // Verificar si hay usuario logueado
     const user = localStorage.getItem('user');
     if (!user) {
-      router.push('/');
+    // COMENTAR ESTA LÍNEA para permitir acceso directo
+    // router.push('/');
     } else {
-      setCurrentUser(JSON.parse(user));
+    setCurrentUser(JSON.parse(user));
     }
-  }, []);
+    }, []); 
 
   const handleLogout = () => {
     localStorage.removeItem('user');

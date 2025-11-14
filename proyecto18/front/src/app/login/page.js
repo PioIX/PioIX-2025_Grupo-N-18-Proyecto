@@ -15,39 +15,47 @@ export default function LoginPage() {
     setError('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!formData.username || !formData.password) {
-      setError('Por favor completa todos los campos');
-      return;
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  if (!formData.username || !formData.password) {
+    setError('Por favor completa todos los campos');
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch('http://localhost:3001/api/auth/login', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        password: formData.password
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Éxito
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      router.push('/truco');
+    } else {
+      // Error del servidor
+      setError(data.error || 'Usuario o contraseña incorrectos');
     }
-
-    setLoading(true);
-
-    try {
-      const response = await fetch('http://localhost:3001/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('token', data.token);
-        router.push('/truco');
-      } else {
-        setError(data.error || 'Usuario o contraseña incorrectos');
-      }
-    } catch (err) {
-      console.error('Error en login:', err);
-      setError('Error de conexión. Verifica que el servidor esté activo.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (err) {
+    // Error de conexión
+    console.error('Error en login:', err);
+    setError('Error de conexión. Verifica que el servidor esté activo en http://localhost:3001');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className={styles.container}>
