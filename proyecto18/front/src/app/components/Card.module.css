@@ -1,21 +1,22 @@
 .card {
-  width: 80px;
-  height: 112px;
+  width: 90px;
+  height: 126px;
   background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border: 2px solid #d1d5db;
+  border-radius: 0.625rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  border: 3px solid #d1d5db;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cardSmall {
-  width: 64px;
-  height: 96px;
+  width: 70px;
+  height: 98px;
+  border-width: 2px;
 }
 
 .cardPlayable {
@@ -23,15 +24,21 @@
 }
 
 .cardPlayable:hover {
-  transform: translateY(-8px) scale(1.1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-12px) scale(1.1);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
   z-index: 10;
+  border-color: #fbbf24;
+}
+
+.cardPlayable:active {
+  transform: translateY(-8px) scale(1.08);
 }
 
 .cardDisabled {
   cursor: default;
 }
 
+/* Reverso de la carta */
 .cardBack {
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   border-color: #1e40af;
@@ -39,8 +46,13 @@
 
 .backPattern {
   color: white;
-  font-size: 2.5rem;
-  opacity: 0.8;
+  font-size: 3rem;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cardSmall .backPattern {
+  font-size: 2.25rem;
 }
 
 /* Imagen de la carta */
@@ -55,20 +67,30 @@
 .cardFallback {
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .fallbackSuit {
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+.cardSmall .fallbackSuit {
+  font-size: 1.875rem;
 }
 
 .fallbackValue {
+  font-size: 1.875rem;
+  font-weight: 800;
+  font-family: 'Georgia', serif;
+}
+
+.cardSmall .fallbackValue {
   font-size: 1.5rem;
-  font-weight: bold;
 }
 
 /* Colores por palo */
@@ -88,8 +110,65 @@
   color: #16a34a;
 }
 
+/* Efecto brillante al pasar el mouse */
+.cardPlayable::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cardPlayable:hover::after {
+  left: 100%;
+}
+
 /* Responsive */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .card {
+    width: 80px;
+    height: 112px;
+  }
+
+  .cardSmall {
+    width: 64px;
+    height: 90px;
+  }
+
+  .backPattern {
+    font-size: 2.5rem;
+  }
+
+  .cardSmall .backPattern {
+    font-size: 2rem;
+  }
+
+  .fallbackSuit {
+    font-size: 2rem;
+  }
+
+  .cardSmall .fallbackSuit {
+    font-size: 1.5rem;
+  }
+
+  .fallbackValue {
+    font-size: 1.5rem;
+  }
+
+  .cardSmall .fallbackValue {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
   .card {
     width: 70px;
     height: 98px;
@@ -97,18 +176,6 @@
 
   .cardSmall {
     width: 56px;
-    height: 84px;
-  }
-
-  .backPattern {
-    font-size: 2rem;
-  }
-
-  .fallbackSuit {
-    font-size: 1.5rem;
-  }
-
-  .fallbackValue {
-    font-size: 1.25rem;
+    height: 78px;
   }
 }

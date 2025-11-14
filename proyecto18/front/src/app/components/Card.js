@@ -1,6 +1,12 @@
 import styles from './Card.module.css';
 
-export default function Card({ card, onClick, isPlayable = true, isSmall = false, showBack = false }) {
+export default function Card({ 
+  card, 
+  onClick, 
+  isPlayable = true, 
+  isSmall = false, 
+  showBack = false 
+}) {
   
   // Mostrar reverso de la carta
   if (showBack) {
@@ -15,7 +21,7 @@ export default function Card({ card, onClick, isPlayable = true, isSmall = false
   if (!card) return null;
 
   // Ruta de la imagen desde public/images/cartas/
-  // Formato esperado: oro_1.png, copa_7.png, espada_12.png, basto_10.png
+  // Formato: oro_1.png, copa_7.png, espada_12.png, basto_10.png
   const imagePath = `/images/cartas/${card.suit}_${card.value}.png`;
 
   // Fallback de emojis si no hay imagen
@@ -50,7 +56,8 @@ export default function Card({ card, onClick, isPlayable = true, isSmall = false
         onError={(e) => {
           // Si la imagen no existe, mostrar fallback con emojis
           e.target.style.display = 'none';
-          const fallback = e.target.nextElementSibling;
+          const parent = e.target.parentElement;
+          const fallback = parent.querySelector(`.${styles.cardFallback}`);
           if (fallback) fallback.style.display = 'flex';
         }}
       />

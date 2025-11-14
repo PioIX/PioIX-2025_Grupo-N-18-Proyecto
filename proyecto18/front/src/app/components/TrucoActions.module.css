@@ -2,45 +2,76 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  padding: 0.5rem;
 }
 
 .actionBtn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.625rem;
+  padding: 0.875rem 1.75rem;
   border: none;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  font-size: 1rem;
+  border-radius: 0.875rem;
+  font-weight: 700;
+  font-size: 1.125rem;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.actionBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.actionBtn:hover::before {
+  opacity: 1;
 }
 
 .actionBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
   transform: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .actionBtn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
 .actionBtn:active:not(:disabled) {
-  transform: translateY(0);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .btnIcon {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
-/* Botón Envido */
+.btnText {
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+/* Botón Envido - Azul */
 .btnEnvido {
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
@@ -49,7 +80,11 @@
   background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
 }
 
-/* Botón Truco */
+.btnEnvido:active:not(:disabled) {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+/* Botón Truco - Rojo */
 .btnTruco {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
 }
@@ -58,7 +93,11 @@
   background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
 }
 
-/* Botón Me voy al mazo */
+.btnTruco:active:not(:disabled) {
+  background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+}
+
+/* Botón Me voy al mazo - Gris */
 .btnFold {
   background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
 }
@@ -67,18 +106,58 @@
   background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
 }
 
+.btnFold:active:not(:disabled) {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Animación de pulso para botones activos */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.actionBtn:focus-visible {
+  outline: none;
+  animation: pulse 1.5s infinite;
+}
+
 /* Responsive */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .actionsContainer {
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .actionBtn {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
   }
 
   .btnIcon {
-    font-size: 1rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .actionsContainer {
+    gap: 0.5rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actionBtn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.938rem;
+    justify-content: center;
+  }
+
+  .btnText {
+    flex: 1;
+    text-align: center;
   }
 }

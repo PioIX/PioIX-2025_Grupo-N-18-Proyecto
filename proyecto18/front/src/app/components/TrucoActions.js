@@ -15,9 +15,10 @@ export default function TrucoActions({
           onClick={onEnvido}
           disabled={disabled}
           className={`${styles.actionBtn} ${styles.btnEnvido}`}
+          title="Cantar Envido"
         >
           <span className={styles.btnIcon}>💙</span>
-          Envido
+          <span className={styles.btnText}>Envido</span>
         </button>
       )}
 
@@ -26,9 +27,10 @@ export default function TrucoActions({
           onClick={onTruco}
           disabled={disabled}
           className={`${styles.actionBtn} ${styles.btnTruco}`}
+          title="Cantar Truco"
         >
           <span className={styles.btnIcon}>⚡</span>
-          Truco
+          <span className={styles.btnText}>Truco</span>
         </button>
       )}
 
@@ -36,9 +38,10 @@ export default function TrucoActions({
         onClick={onFold}
         disabled={disabled}
         className={`${styles.actionBtn} ${styles.btnFold}`}
+        title="Abandonar la mano"
       >
         <span className={styles.btnIcon}>🏳️</span>
-        Me voy al mazo
+        <span className={styles.btnText}>Me voy al mazo</span>
       </button>
     </div>
   );
