@@ -1,5 +1,5 @@
-require('dotenv').config();
-const express = require('express');
+import { config } from 'dotenv'
+import express from 'express';
 const http = require('http');
 const { Server } = require('socket.io');
 const bcrypt = require('bcryptjs');
@@ -8,6 +8,8 @@ const cors = require('cors');
 
 // Importar configuración de MySQL
 const db = require('./config/mysql');
+
+const config = config()
 
 const app = express();
 const server = http.createServer(app);

@@ -1,5 +1,5 @@
 //Sección MySQL del código
-const mySql = require("mysql2/promise");
+import "mysql2/promise"
 
 /**
  * Objeto con la configuración de la base de datos MySQL a utilizar.
