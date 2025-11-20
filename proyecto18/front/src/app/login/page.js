@@ -9,6 +9,8 @@ export default function LoginPage() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [ nombre, setNombre] = useState(""); 
+  const [ contraseña, setContraseña] = useState("");
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -68,7 +70,7 @@ const handleSubmit = async (e) => {
         </button>
 
         <div className={styles.header}>
-          <div className={styles.icon}>🔑</div>
+          <div className={styles.icon}></div>
           <h2 className={styles.title}>Iniciar Sesión</h2>
           <p className={styles.subtitle}>Ingresa tus datos</p>
         </div>
@@ -104,7 +106,7 @@ const handleSubmit = async (e) => {
 
           {error && (
             <div className={styles.error}>
-              <span className={styles.errorIcon}>⚠️</span>
+              <span className={styles.errorIcon}></span>
               {error}
             </div>
           )}
@@ -117,7 +119,7 @@ const handleSubmit = async (e) => {
             {loading ? (
               <>
                 <span className={styles.spinner}></span>
-                Ingresando...
+                RECONOCIENDO AL USUARIO...
               </>
             ) : (
               'Ingresar'
@@ -131,7 +133,7 @@ const handleSubmit = async (e) => {
             onClick={() => router.push('/registro')}
             className={styles.btnLink}
           >
-            Regístrate aquí
+            Regístrate ACA
           </button>
         </div>
       </div>
