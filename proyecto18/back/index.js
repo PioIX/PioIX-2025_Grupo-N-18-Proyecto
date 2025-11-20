@@ -125,7 +125,7 @@ app.post('/api/register', async (req, res) => {
       token
     });
   } catch (error) {
-    console.error('❌ Error en registro:', error);
+    console.error('Error en registro:', error);
     res.status(500).json({ error: 'Error al registrar usuario' });
   }
 });
@@ -166,7 +166,7 @@ app.post('/api/login', async (req, res) => {
       { expiresIn: '7d' }
     );
 
-    console.log(`✅ Login exitoso: ${username}`);
+    console.log(`Login exitoso: ${username}`);
 
     res.json({
       message: 'Login exitoso',
@@ -174,7 +174,7 @@ app.post('/api/login', async (req, res) => {
       token
     });
   } catch (error) {
-    console.error('❌ Error en login:', error);
+    console.error('Error en login:', error);
     res.status(500).json({ error: 'Error al iniciar sesión' });
   }
 });
@@ -195,7 +195,7 @@ app.get('/api/user/:userId/stats', async (req, res) => {
 
     res.json(stats[0]);
   } catch (error) {
-    console.error('❌ Error obteniendo estadísticas:', error);
+    console.error(' Error obteniendo estadísticas:', error);
     res.status(500).json({ error: 'Error al obtener estadísticas' });
   }
 });
@@ -219,7 +219,7 @@ app.post('/api/user/:userId/stats', async (req, res) => {
 
     res.json({ message: 'Estadísticas actualizadas' });
   } catch (error) {
-    console.error('❌ Error actualizando estadísticas:', error);
+    console.error(' Error actualizando estadísticas:', error);
     res.status(500).json({ error: 'Error al actualizar estadísticas' });
   }
 });
@@ -242,15 +242,15 @@ server.listen(PORT, () => {
   `);
 });
 
-// Cierre limpio
+// Cierre limpio bravo
 process.on('SIGINT', async () => {
-  console.log('\n🛑 Cerrando servidor...');
+  console.log('\n Cerrando servidor...');
   await db.closePool();  // Asegúrate de que este método esté implementado en tu archivo mysql.js
   process.exit(0);
 });
 
 process.on('unhandledRejection', (error) => {
-  console.error('❌ Error no manejado:', error);
+  console.error(' Error no manejado:', error);
 });
 
 app.use(cors({

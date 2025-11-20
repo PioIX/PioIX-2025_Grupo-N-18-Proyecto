@@ -18,8 +18,6 @@ export default function TrucoPage() {
   useEffect(() => {
     const user = localStorage.getItem('user');
     if (!user) {
-    // COMENTAR ESTA LÍNEA para permitir acceso directo
-    // router.push('/');
     } else {
     setCurrentUser(JSON.parse(user));
     }
@@ -70,7 +68,7 @@ export default function TrucoPage() {
     <div className={styles.container}>
       <div className={styles.selectorCard}>
         <div className={styles.header}>
-          <div className={styles.trophy}>🏆</div>
+          <div className={styles.trophy}></div>
           <h1 className={styles.title}>Elige un Modo</h1>
           <p className={styles.welcome}>Bienvenido, {currentUser.username}</p>
         </div>
@@ -81,9 +79,9 @@ export default function TrucoPage() {
             onClick={() => setGameMode('ia')}
             className={`${styles.modeCard} ${styles.modeIA}`}
           >
-            <div className={styles.modeIcon}>🤖</div>
+            <div className={styles.modeIcon}></div>
             <h3 className={styles.modeTitle}>vs IA</h3>
-            <p className={styles.modeDesc}>Practica contra la computadora</p>
+            <p className={styles.modeDesc}>JUGAR LOCAL CON LA MÁQUINA</p>
           </button>
 
           {/* Modo 1vs1 */}
@@ -91,9 +89,9 @@ export default function TrucoPage() {
             onClick={() => setGameMode('multiplayer')}
             className={`${styles.modeCard} ${styles.modeMultiplayer}`}
           >
-            <div className={styles.modeIcon}>👥</div>
+            <div className={styles.modeIcon}></div>
             <h3 className={styles.modeTitle}>1 vs 1</h3>
-            <p className={styles.modeDesc}>Juega contra otro jugador</p>
+            <p className={styles.modeDesc}>Juega CONTRA UN AMIGO</p>
           </button>
         </div>
 
@@ -101,7 +99,7 @@ export default function TrucoPage() {
           onClick={handleLogout}
           className={styles.logoutBtn}
         >
-          Cerrar Sesión
+         CERRAR MI SESIÓN
         </button>
       </div>
     </div>
