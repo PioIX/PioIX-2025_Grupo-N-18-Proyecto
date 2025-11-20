@@ -79,12 +79,6 @@ app.post('/api/register', async (req, res) => {
     return res.status(400).json({ error: 'La contraseña debe tener al menos 6 caracteres' });
   }
 
-  // Validar email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: 'Email inválido' });
-  }
-
   try {
     // Verificar si el usuario ya existe
     const existingUsers = await db.query(
@@ -151,11 +145,6 @@ app.post('/api/login', async (req, res) => {
     if (users.length === 0) {
       return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
     }
-
-    const user = users[0];
-
-    // Verificar contraseña
-    const validPassword = await bcrypt.compare(password, user.password);
 
     if (!validPassword) {
       return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
@@ -251,11 +240,3 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
-process.on('unhandledRejection', (error) => {
-  console.error('❌ Error no manejado:', error);
-});
-
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
