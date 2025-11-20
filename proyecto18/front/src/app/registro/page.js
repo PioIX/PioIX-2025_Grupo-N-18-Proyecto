@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './page.module.css';
+import styles from '../styles/registro.module.css';
 
 export default function RegistroPage() {
   const router = useRouter();

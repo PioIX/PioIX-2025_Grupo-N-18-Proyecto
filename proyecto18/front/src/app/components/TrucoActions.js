@@ -1,5 +1,3 @@
-import styles from './TrucoActions.module.css';
-
 export default function TrucoActions({ 
   onTruco, 
   onEnvido, 

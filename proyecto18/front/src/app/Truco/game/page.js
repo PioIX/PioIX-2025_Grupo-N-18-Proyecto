@@ -3,9 +3,9 @@
 
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-import Card from '../components/Card';
-import TrucoActions from '../components/TrucoActions';
-import styles from './TrucoGame.module.css';
+import Card from '../../components/Card';
+import TrucoActions from '../../components/TrucoActions';
+import styles from '../../styles/game.module.css';
 
 export default function TrucoGame() {
   const [socket, setSocket] = useState(null);

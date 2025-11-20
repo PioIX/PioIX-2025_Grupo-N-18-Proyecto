@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import TrucoGame from './TrucoGame';
-import TrucoGameMultiplayer from './TrucoGameMultiplayer';
-import styles from './page.module.css';
+import styles from '../styles/truco.module.css';
 
 
 
@@ -17,12 +15,12 @@ export default function TrucoPage() {
 
   useEffect(() => {
     const user = localStorage.getItem('user');
-    if (!user) {
-    // COMENTAR ESTA LÍNEA para permitir acceso directo
-    // router.push('/');
+    if (user) {
+      setCurrentUser(JSON.parse(user));
     } else {
-    setCurrentUser(JSON.parse(user));
+      setCurrentUser({ username: "Invitado" }); // o lo que quieras
     }
+
     }, []); 
 
   const handleLogout = () => {
